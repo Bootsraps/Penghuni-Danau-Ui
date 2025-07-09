@@ -23,7 +23,6 @@ body .biodata{
   }
   
   .album-grid {
-    display: none;
     grid-template-columns: repeat(auto-fit, minmax(2, 1fr));
   }
 
