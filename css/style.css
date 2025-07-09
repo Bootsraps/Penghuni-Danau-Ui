@@ -17,6 +17,12 @@ body .biodata{
   align-items: center;
 }
 
+@media (max-width: 900px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 600px) {
   .card-grid{
     grid-template-columns: 1fr;
