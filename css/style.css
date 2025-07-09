@@ -8,12 +8,12 @@ body {
   padding-bottom: 60px;
   flex-direction: column;
   width: 100%;
-  display: flex; 
   overflow-x: hidden;
-  justify-content: center;
 }
 
 body .biodata{
+  display: flex; 
+  justify-content: center;
   align-items: center;
 }
 
@@ -74,8 +74,10 @@ header p{
   gap: 1.5rem;
   padding: 2rem;
   width: 100%;
+  flex-wrap: wrap;
   max-width: 1000px;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .card {
