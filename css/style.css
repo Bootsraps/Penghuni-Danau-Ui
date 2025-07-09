@@ -22,7 +22,7 @@ body .biodata{
     grid-template-columns: 1fr;
   }
   
-  .album-grid {
+  /* .album-grid {
     grid-template-columns: repeat(auto-fit, minmax(2, 1fr));
   }
 
@@ -40,7 +40,7 @@ body .biodata{
     border-radius: 10px;
     scroll-snap-align: start;
     object-fit: cover;
-  }
+  } */
 }
 
 @keyframes gradientFlow {
@@ -145,10 +145,6 @@ header p{
 
 .album-grid img:hover {
   transform: scale(1.05);
-}
-
-.album-slider {
-  display: none;
 }
 
 
