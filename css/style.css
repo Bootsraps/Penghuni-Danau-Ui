@@ -8,11 +8,11 @@ body {
   padding-bottom: 60px;
   flex-direction: column;
   width: 100%;
+  display: flex; 
   overflow-x: hidden;
 }
 
 body .biodata{
-  display: flex;
   align-items: center;
   justify-content: center;
 }
