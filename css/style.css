@@ -10,11 +10,11 @@ body {
   width: 100%;
   display: flex; 
   overflow-x: hidden;
+  justify-content: center;
 }
 
 body .biodata{
   align-items: center;
-  justify-content: center;
 }
 
 @keyframes gradientFlow {
