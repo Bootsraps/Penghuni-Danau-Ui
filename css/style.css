@@ -1,6 +1,6 @@
 body {
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #ffe4ec, #e0f7fa, #fff4e0);
+  background: linear-gradient(135deg, #ffc7d8, #ddfafe, #fff1d8);
   background-size: 400% 400%;
   animation: gradientFlow 15s ease infinite;
   margin: 0;
@@ -12,9 +12,7 @@ body {
 }
 
 body .biodata{
-  display: flex; 
   justify-content: center;
-  align-items: center;
 }
 
 @media (max-width: 900px) {
@@ -98,6 +96,10 @@ header p{
   width: 75px;
   max-width: 80%;
   height: auto;
+}
+
+.card img .card-kile{
+  width: 90px;
 }
 
 .card:hover {
@@ -206,23 +208,23 @@ footer {
 }
 
 .card-aulia {
-  background-color: #ffe0f0; 
+  background-color: #ffb6dc; 
 }
 
 .card-amel {
-  background-color: #f3e0ff; 
+  background-color: #ffa1ff; 
 }
 
 .card-maha {
-  background-color: #fff4e0; 
+  background-color: #fff1ba; 
 }
 
 .card-andre {
-  background-color: #e0ffe8; 
+  background-color: #bbffcc; 
 }
 
 .card-kile {
-  background-color: #e0f7fa; 
+  background-color: #80f0ff; 
 }
 
 .timeline-container {
