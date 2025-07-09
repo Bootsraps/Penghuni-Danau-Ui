@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Friendship Wall</title>
   <link rel="stylesheet" href="css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
@@ -68,16 +69,21 @@
     <a href="images/1.jpeg" data-lightbox="album" target="_blank">
       <img src="images/1.jpeg" alt="Photo 1">
     </a>
-    <a href="images/2.jpeg" target="_blank">
-      <img src="images/2.jpeg" alt="Photo 2">
-    </a>
     <a href="images/3.jpeg" target="_blank">
       <img src="images/3.jpeg" alt="Photo 3">
     </a>
-    <a href="images/4.jpeg" target="_blank">
-      <img src="images/4.jpeg" alt="Photo 3">
+    <a href="images/2.jpeg" target="_blank">
+      <img src="images/2.jpeg" alt="Photo 2">
     </a>
+    
+    <div class="more-photos hidden album-slider">
+      <a href="images/4.jpeg" target="_blank">
+        <img src="images/4.jpeg" alt="Photo 3">
+      </a>
+    </div>
   </div>
+
+  <button class="more-btn" onclick="showMore()">See More</button> 
 </section>
 
 <section class="timeline-container">
@@ -124,6 +130,12 @@
       isPlaying = true;
     }
   }
+
+  function showMore() {
+    const more = document.querySelector('.more-photos');
+    more.classList.toggle('hidden');
+  }
+
 </script>
 
 </html>
