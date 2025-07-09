@@ -132,7 +132,7 @@ header p{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   gap: 10px;
-  max-width: 800px;
+  max-width: 1000px;
   margin: auto;
   padding: 0 10px;
   box-sizing: border-box;
