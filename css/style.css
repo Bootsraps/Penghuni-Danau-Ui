@@ -1,6 +1,6 @@
 body {
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #ffc7d8, #ddfafe, #fff1d8);
+  background: linear-gradient(135deg, #ffdde7, #ddfafe, #e0ffdc);
   background-size: 400% 400%;
   animation: gradientFlow 15s ease infinite;
   margin: 0;
@@ -11,7 +11,9 @@ body {
   overflow-x: hidden;
 }
 
-body .biodata{
+body .profile-top{
+  padding: 0;
+  align-items: center;
   justify-content: center;
 }
 
@@ -25,26 +27,15 @@ body .biodata{
   .card-grid{
     grid-template-columns: 1fr !important;
   }
-  
-  /* .album-grid {
-    grid-template-columns: repeat(auto-fit, minmax(2, 1fr));
+
+  .info-grid {
+    grid-template-columns: 1fr !important;
   }
 
-  .album-slider {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    gap: 10px;
-    padding: 10px;
+  .profile-card{
+    width: 75%;
+    padding: 15px;
   }
-
-  .album-slider img {
-    flex: 0 0 100%;
-    width: 100%;
-    border-radius: 10px;
-    scroll-snap-align: start;
-    object-fit: cover;
-  } */
 }
 
 @keyframes gradientFlow {
@@ -59,7 +50,7 @@ header {
 }
 
 header h1{
-  letter-spacing: 5px;
+  letter-spacing: 6px;
 }
 
 header p{
@@ -106,16 +97,6 @@ header p{
   transform: translateY(-5px);
 }
 
-/* .about {
-  width: 1100px;
-  max-width: 80%;
-  margin: 3rem auto;
-  background: rgba(255, 255, 255, 0.464);
-  padding: 2rem;
-  border-radius: 15px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-} */
-
 .card a{
   list-style: none;
   text-decoration: none;
@@ -157,22 +138,26 @@ header p{
 
 
 .more-btn {
-  margin-top: 15px;
-  padding: 8px 20px;
+  margin-top: 25px;
+  padding: 10px 20px;
   border-radius: 20px;
   border: none;
   background-color: #ffcce5;
   cursor: pointer;
   font-weight: bold;
+  text-decoration: none;
+  display: inline-blocks;
+  color: inherit;
 }
 
 .more-btn:hover {
   background-color: #ff99cc;
 }
 
-.hidden {
-  display: none;
+.more-btn-container {
+  margin-top: 20px;  /* Ini yang kasih jarak tombol dari gambar */
 }
+
 
 footer {
   position: fixed;
@@ -272,61 +257,104 @@ footer {
   font-size: 0.95rem;
 }
 
-.biodata {
+.quote-box {
+  position: relative;
   max-width: 600px;
-  width: 90%;
-  margin: 3rem auto;
-  text-align: center;
-  margin-top: 80px; 
-  padding: 2rem;
-  background-color: #fffafc;
-  border-radius: 15px;
+  margin: 2rem auto;
+  padding: 10px 15px;
+  position: relative;
+  border-radius: 50px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-}
-
-.biodata-img {
-  width: 150px;
-  border-radius: 50%;
-  margin-bottom: 1rem;
-}
-
-.biodata h1 {
-  font-size: 24px;
-  color: #444;
-  letter-spacing: 1px;
-}
-
-.biodata h3 {
-  color: #888;
-  margin-bottom: 1rem;
-}
-
-.bio-desc {
-  font-size: 0.95rem;
+  font-style: italic;
+  font-size: 16px;
   color: #555;
-  margin-bottom: 1rem;
+  background-color: #ffffffd9;
 }
 
-.bio-info {
-  list-style: none;
-  padding: 0;
-  margin: 0 auto 2rem;
-  text-align: left;
-  display: inline-block;
+.profile-card {
+  max-width: 400px;
+  margin: 2rem auto;
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+.profile-card h2 {
+  margin-bottom: 5px;  /* Biar deket ke nickname */
+  font-size: 22px;
+  color: #333;
+}
+
+.profile-top {
+  position: relative;
+}
+
+.profile-photo {
+  width: 120px;
+}
+
+.quote-bubble {
+  position: absolute;
+  top: 10px;
+  right: -20px;
+  background: #fff;
+  padding: 8px 12px;
+  border-radius: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  font-size: 12px;
+  max-width: 150px;
+}
+
+.nickname {
+  font-style: italic;
+  color: #777;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-top: 1.5rem;
+}
+
+.info-item h4 {
+  margin: 0;
+  font-size: 0.85rem;
   color: #666;
 }
 
-.bio-info li {
-  margin-bottom: 8px;
+.info-item p {
+  margin: 5px 0 0;
+  font-weight: bold;
+  font-size: 0.95rem;
 }
 
-.back-btn {
-  position: absolute;
-  bottom: 90px;
-  left: 20px;  /* Bisa ganti jadi right: 20px; kalau mau di kanan */
+.quotes-banner {
+  background: #fff;
+  border-radius: 15px;
+  padding: 15px 20px;
+  margin-top: 20px;
+  font-style: italic;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  max-width: 600px;
+  text-align: center;
+}
+
+.profile-navigation {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.nav-btn {
   text-decoration: none;
-  background-color: #ffcce5;
-  padding: 8px 15px;
+  background-color: #6feec0;
+  padding: 8px 16px;
   border-radius: 20px;
   color: #333;
   font-weight: bold;
@@ -335,12 +363,6 @@ footer {
   font-size: 14px;
 }
 
-.back-btn:hover {
-  background-color: #ff99cc;
+.nav-btn:hover {
+  background-color: #459879;
 }
-
-
-
-
-
-
