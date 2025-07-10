@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Friendship Wall</title>
   <link rel="stylesheet" href="css/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" >
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css" />
 </head>
@@ -17,38 +17,42 @@
       <audio id="bg-music" src="music/ProjectPop.mp3" loop></audio>
       <button onclick="toggleMusic()"><i class="fa-solid fa-music"></i></button>
     </div>
+
+    <div class="quote-box" id="quoteBox">
+      <p id="quoteText">Loading...</p>
+    </div>
   </header>
 
   <section class="card-grid">
-    <div class="card card-aulia" onclick="location.href='profile/aula.html'">
+    <div class="card card-aulia" onclick="location.href='profile/aulia.html'">
       <img src="images/icon/aulia.png">
       <h2>Aulia Damayanti</h2>
       <P>The Bucin of The Grup</P>
       <p></i><a href="https://www.instagram.com/auliadmyntt/?hl=id"><i class="fab fa-instagram"></i> auliadmyntt</a></p>
     </div>
 
-    <div class="card card-amel" onclick="location.href='amel.html'">
+    <div class="card card-amel" onclick="location.href='profile/amel.html'">
       <img src="images/icon/amel.png">
       <h2>Nazya Amelya R</h2>
       <p>The Korban of The Group</p>
       <p><a href="https://www.instagram.com/nzyaarr/?hl=id"><i class="fab fa-instagram"></i> nzyaarr</a></p>
     </div>
 
-    <div class="card card-maha" onclick="location.href='maha.html'">
+    <div class="card card-maha" onclick="location.href='profile/maha.html'">
       <img src="images/icon/maha.png">
       <h2>Maha Surachman</h2>
       <p>The Bully of The Group</p>
       <p><a href="https://www.instagram.com/maha.src/?hl=id"><i class="fab fa-instagram"></i> maha.src</a></p>
     </div>
 
-    <div class="card card-andre" onclick="location.href='andre.html'">
+    <div class="card card-andre" onclick="location.href='profile/andre.html'">
       <img src="images/icon/andre.png">
       <h2>Andre Arya Saputra</h2>
       <p>The Buaya of The Group</p>
       <p><a href="https://www.instagram.com/andreps.co/?hl=id"><i class="fab fa-instagram"></i> andreps.co</a></p>
     </div>
     
-    <div class="card card-kile" onclick="location.href='kile.html'">
+    <div class="card card-kile" onclick="location.href='profile/kile.html'">
         <img src="images/icon/kile.png">
         <h2>Muhammad Rizky A</h2>
         <p>The Asbun of The Group</p>
@@ -57,11 +61,6 @@
 
 
   </section>
-
-  <!-- <section class="about">
-    <h2>About Our Group</h2>
-    <p>Grup ini didirikan pada bulan Mei 2025. </p>
-  </section> -->
 
   <section class="album">
   <h2><i class="ph ph-camera"></i> Album Photo</h2>
@@ -75,16 +74,15 @@
     <a href="images/2.jpeg" target="_blank">
       <img src="images/2.jpeg" alt="Photo 2">
     </a>
-    
-    <div class="more-photos hidden">
-      <a href="images/4.jpeg" target="_blank">
-        <img src="images/4.jpeg" alt="Photo 3">
-      </a>
-    </div>
   </div>
+  <div class="more-btn-container">
+    <a href="album/album.html" class="more-btn">See More</a> 
+  </div>
+</div>
 
-  <button class="more-btn" onclick="showMore()">See More</button> 
+
 </section>
+
 
 <section class="timeline-container">
   <h2><i class="ph ph-pencil-simple"></i> Timeline of Our Journey</h2>
@@ -111,9 +109,8 @@
   </div>
 </section>
 
-
 <footer>
-  <p>© 2025 Penghuni Danau UI | Laugh, Cry, Happiness, Sadness</p>
+  <p>© 2025 A M A K A | Laugh and Cry Together  </p>
 </footer>
 </body>
 
@@ -131,10 +128,55 @@
     }
   }
 
-  function showMore() {
-    const more = document.querySelector('.more-photos');
-    more.classList.toggle('hidden');
+  document.addEventListener('DOMContentLoaded', () => {
+    const today = new Date();
+    const todayMonth = today.getMonth() + 1; // 1-12
+    const todayDate = today.getDate();
+
+    const cards = document.querySelectorAll('.birthday-card');
+    let closestCard = null;
+    let minDiff = Infinity;
+
+    cards.forEach(card => {
+      const [monthStr, dayStr] = card.getAttribute('data-date').split('-');
+      const month = parseInt(monthStr);
+      const day = parseInt(dayStr);
+      let eventDate = new Date(today.getFullYear(), month - 1, day);
+
+      if (eventDate < today) {
+        eventDate.setFullYear(today.getFullYear() + 1);
+      }
+
+      const diff = eventDate - today;
+
+      if (diff < minDiff) {
+        minDiff = diff;
+        closestCard = card;
+      }
+    });
+
+    if (closestCard) {
+      closestCard.classList.add('highlight');
+    }
+  });
+
+
+  const quotes = [
+    "Friendship isn't a big thing—it's a million little things.",
+    "Life is better with friends who make you laugh.",
+    "Good times + Crazy friends = Amazing memories.",
+    "Together we make a family of our own choosing.",
+    "Happiness is having a bunch of weirdos you call friends.",
+    "Some souls just understand each other upon meeting.",
+    "A friend is one who overlooks your broken fence and admires the flowers in your garden."
+  ];
+
+  function showRandomQuote() {
+    const randomIndex = Math.floor(Math.random() * quotes.length);
+    document.getElementById('quoteText').textContent = quotes[randomIndex];
   }
+
+  window.onload = showRandomQuote;
 
 </script>
 
